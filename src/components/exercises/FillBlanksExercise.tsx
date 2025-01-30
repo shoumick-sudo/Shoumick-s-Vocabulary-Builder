@@ -1,11 +1,11 @@
-import { FillBlankExercise } from "@/data/passages";
+import type { FillBlankExercise as FillBlankExerciseType } from "@/data/passages";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent } from "@/components/ui/card";
 import { toast } from "sonner";
 
 interface FillBlanksExerciseProps {
-  exercises: FillBlankExercise[];
+  exercises: FillBlankExerciseType[];
   answers: string[];
   setAnswers: (answers: string[]) => void;
 }

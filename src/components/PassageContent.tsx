@@ -48,7 +48,6 @@ export function PassageContent({ title, content, vocabulary }: PassageContentPro
             {title}
           </h1>
         </div>
-
         <ScrollArea className="h-[calc(100vh-20rem)] pr-6">
           <div className="prose prose-lg max-w-none dark:prose-invert">
             {highlightVocabulary(content)}

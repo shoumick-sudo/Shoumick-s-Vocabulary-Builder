@@ -1,11 +1,11 @@
-import { MatchingExercise } from "@/data/passages";
+import type { MatchingExercise as MatchingExerciseType } from "@/data/passages";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent } from "@/components/ui/card";
 import { toast } from "sonner";
 
 interface MatchingExerciseProps {
-  exercises: MatchingExercise[];
+  exercises: MatchingExerciseType[];
   answers: number[];
   setAnswers: (answers: number[]) => void;
 }

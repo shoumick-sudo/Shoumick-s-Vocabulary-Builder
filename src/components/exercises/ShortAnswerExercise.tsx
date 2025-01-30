@@ -1,11 +1,11 @@
-import { ShortAnswerExercise } from "@/data/passages";
+import type { ShortAnswerExercise as ShortAnswerExerciseType } from "@/data/passages";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent } from "@/components/ui/card";
 import { toast } from "sonner";
 
 interface ShortAnswerExerciseProps {
-  exercises: ShortAnswerExercise[];
+  exercises: ShortAnswerExerciseType[];
   answers: string[];
   setAnswers: (answers: string[]) => void;
 }

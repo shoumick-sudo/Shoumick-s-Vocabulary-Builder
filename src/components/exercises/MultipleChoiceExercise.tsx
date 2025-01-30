@@ -1,10 +1,10 @@
-import { MultipleChoiceExercise } from "@/data/passages";
+import type { MultipleChoiceExercise as MultipleChoiceExerciseType } from "@/data/passages";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { toast } from "sonner";
 
 interface MultipleChoiceExerciseProps {
-  exercises: MultipleChoiceExercise[];
+  exercises: MultipleChoiceExerciseType[];
   answers: string[];
   setAnswers: (answers: string[]) => void;
 }

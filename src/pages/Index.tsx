@@ -1,14 +1,17 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { passages } from "@/data/passages";
+import { PassageCard } from "@/components/PassageCard";
 
-const Index = () => {
+export default function Index() {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">Start building your amazing project here!</p>
+    <div className="container py-8 animate-fade-in">
+      <h1 className="mb-8 text-4xl font-bold text-center bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+        Vocabulary Learning
+      </h1>
+      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {passages.map((passage) => (
+          <PassageCard key={passage.id} passage={passage} />
+        ))}
       </div>
     </div>
   );
-};
-
-export default Index;
+}

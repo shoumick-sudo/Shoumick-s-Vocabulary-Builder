@@ -1,8 +1,10 @@
 import { passages } from "@/data/passages";
 import { VocabularyWord } from "@/components/VocabularyWord";
 import { useParams, Link } from "react-router-dom";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, BookOpen } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { ScrollArea } from "@/components/ui/scroll-area";
 
 export default function PassagePage() {
   const { id } = useParams();
@@ -36,38 +38,35 @@ export default function PassagePage() {
           return part;
         });
 
-      return <p key={i} className="mb-4">{content}</p>;
+      return <p key={i} className="mb-6 leading-7 text-foreground/90">{content}</p>;
     });
   };
 
   return (
-    <div className="container py-8 animate-fade-in">
+    <div className="container max-w-4xl py-8 animate-fade-in">
       <Link to="/">
-        <Button variant="ghost" className="mb-4">
-          <ArrowLeft className="mr-2 h-4 w-4" />
+        <Button variant="ghost" className="mb-6 group">
+          <ArrowLeft className="mr-2 h-4 w-4 transition-transform group-hover:-translate-x-1" />
           Back to Passages
         </Button>
       </Link>
       
-      <h1 className="mb-8 text-4xl font-bold text-center bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-        {passage.title}
-      </h1>
+      <Card className="mb-8">
+        <CardContent className="pt-6">
+          <div className="flex items-center gap-3 mb-6">
+            <BookOpen className="h-6 w-6 text-primary" />
+            <h1 className="text-3xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+              {passage.title}
+            </h1>
+          </div>
 
-      <div className="prose prose-lg max-w-none">
-        {highlightVocabulary(passage.content)}
-      </div>
-
-      <div className="mt-8">
-        <h2 className="text-2xl font-bold mb-4">Vocabulary</h2>
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-          {passage.vocabulary.map((word) => (
-            <div key={word.word} className="p-4 rounded-lg bg-gray-50">
-              <VocabularyWord word={word} />
-              <p className="mt-2 text-sm text-gray-600">{word.definition}</p>
+          <ScrollArea className="h-[calc(100vh-20rem)] pr-6">
+            <div className="prose prose-lg max-w-none dark:prose-invert">
+              {highlightVocabulary(passage.content)}
             </div>
-          ))}
-        </div>
-      </div>
+          </ScrollArea>
+        </CardContent>
+      </Card>
     </div>
   );
 }
